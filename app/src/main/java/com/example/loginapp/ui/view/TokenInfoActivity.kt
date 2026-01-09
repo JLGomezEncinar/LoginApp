@@ -16,6 +16,7 @@ class TokenInfoActivity : AppCompatActivity() {
 
     private lateinit var tokenTextView: TextView
     private lateinit var expirationTextView: TextView
+    private lateinit var aliasTextView: TextView
     private lateinit var logoutButton: Button
     private lateinit var tokenManager: TokenManager
 
@@ -25,6 +26,7 @@ class TokenInfoActivity : AppCompatActivity() {
 
         tokenTextView = findViewById(R.id.tv_token)
         expirationTextView = findViewById(R.id.tv_expiration)
+        aliasTextView = findViewById(R.id.tv_alias)
         logoutButton = findViewById(R.id.btn_logout)
         tokenManager = TokenManager(this)
 
@@ -33,6 +35,7 @@ class TokenInfoActivity : AppCompatActivity() {
         if (token != null) {
             tokenTextView.text = "Token: $token"
             expirationTextView.text = "Expiration: ${getExpirationFromToken(token)}"
+            aliasTextView.text = "Alias: ${getAliasFromToken(token)}"
         } else {
             tokenTextView.text = "No token found"
         }
@@ -60,6 +63,19 @@ class TokenInfoActivity : AppCompatActivity() {
             } else {
                 "No expiration found"
             }
+        } catch (e: Exception) {
+            return "Error decoding token"
+        }
+    }
+
+    private fun getAliasFromToken(token: String): String {
+        try {
+            val parts = token.split(".")
+            if (parts.size < 2) return "Invalid Token"
+
+            val payload = String(Base64.decode(parts[1], Base64.URL_SAFE), StandardCharsets.UTF_8)
+            val jsonObject = JSONObject(payload)
+            return jsonObject.optString("sub", "No alias found")
         } catch (e: Exception) {
             return "Error decoding token"
         }

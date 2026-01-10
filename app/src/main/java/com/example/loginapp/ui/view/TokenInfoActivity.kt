@@ -17,6 +17,8 @@ class TokenInfoActivity : AppCompatActivity() {
     private lateinit var tokenTextView: TextView
     private lateinit var expirationTextView: TextView
     private lateinit var aliasTextView: TextView
+    private lateinit var myTripsButton: Button
+    private lateinit var otherTripsButton: Button
     private lateinit var logoutButton: Button
     private lateinit var tokenManager: TokenManager
 
@@ -27,6 +29,8 @@ class TokenInfoActivity : AppCompatActivity() {
         tokenTextView = findViewById(R.id.tv_token)
         expirationTextView = findViewById(R.id.tv_expiration)
         aliasTextView = findViewById(R.id.tv_alias)
+        myTripsButton = findViewById(R.id.btn_my_trips)
+        otherTripsButton = findViewById(R.id.btn_other_trips)
         logoutButton = findViewById(R.id.btn_logout)
         tokenManager = TokenManager(this)
 
@@ -35,9 +39,21 @@ class TokenInfoActivity : AppCompatActivity() {
         if (token != null) {
             tokenTextView.text = "Token: $token"
             expirationTextView.text = "Expiration: ${getExpirationFromToken(token)}"
-            aliasTextView.text = "Alias: ${getAliasFromToken(token)}"
+            val alias = getAliasFromToken(token)
+            aliasTextView.text = "Hola $alias"
         } else {
             tokenTextView.text = "No token found"
+            aliasTextView.text = "Hola Usuario"
+        }
+
+        myTripsButton.setOnClickListener {
+            val intent = Intent(this, MyTripsActivity::class.java)
+            startActivity(intent)
+        }
+
+        otherTripsButton.setOnClickListener {
+            // TODO: Implement navigation to Other Users' Trips
+            android.widget.Toast.makeText(this, "Navegando a Viajes de otros...", android.widget.Toast.LENGTH_SHORT).show()
         }
 
         logoutButton.setOnClickListener {

@@ -44,10 +44,8 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.btnToRegister.setOnClickListener {
-            // Navegación a pantalla de registro (Placeholder)
-            Toast.makeText(this, "Navigating to Register Screen...", Toast.LENGTH_SHORT).show()
-            // val intent = Intent(this, RegisterActivity::class.java)
-            // startActivity(intent)
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
         }
     }
 

@@ -1,0 +1,74 @@
+﻿.\gradlew.bat : 
+WARNING: A 
+restricted method in 
+java.lang.System has 
+been called
+En línea: 1 
+Carácter: 1
++ .\gradlew.bat 
+assembleDebug > 
+build_error.log 2>&1
++ ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~
+    + CategoryInfo   
+           : 
+NotSpecifi    ed: 
+(WARNING: A re    
+st...has been call   
+ ed:String) [], Rem  
+  oteException
+    + 
+FullyQualifiedEr    
+rorId : NativeComm   
+ andError
+ 
+WARNING: java.lang.Sy
+stem::load has been 
+called by net.rubygra
+pefruit.platform.inte
+rnal.NativeLibraryLoa
+der in an unnamed 
+module (file:/C:/User
+s/reshi/.gradle/wrapp
+er/dists/gradle-8.11.
+1-bin/bpt9gzteqjrbo1m
+jrsomdt32c/gradle-8.1
+1.1/lib/native-platfo
+rm-0.22-milestone-26.
+jar)
+WARNING: Use --enable
+-native-access=ALL-UN
+NAMED to avoid a 
+warning for callers 
+in this module
+WARNING: Restricted 
+methods will be 
+blocked in a future 
+release unless 
+native access is 
+enabled
+
+
+FAILURE: Build 
+failed with an 
+exception.
+
+* What went wrong:
+25.0.1
+
+* Try:
+> Run with 
+--stacktrace option 
+to get the stack 
+trace.
+> Run with --info or 
+--debug option to 
+get more log output.
+> Run with --scan to 
+get full insights.
+> Get more help at ht
+tps://help.gradle.org
+.
+
+BUILD FAILED in 954ms

@@ -2,6 +2,8 @@ package com.example.loginapp.data.api
 
 import com.example.loginapp.data.model.LoginRequest
 import com.example.loginapp.data.model.LoginResponse
+import com.example.loginapp.data.model.RegisterRequest
+import com.example.loginapp.data.model.RegisterResponse
 import com.example.loginapp.data.model.Trip
 import retrofit2.Response
 import retrofit2.http.Body
@@ -12,6 +14,9 @@ import retrofit2.http.POST
 interface ApiService {
     @POST("api/login")
     suspend fun login(@Body request: LoginRequest): Response<LoginResponse>
+    
+    @POST("api/register")
+    suspend fun register(@Body request: RegisterRequest): Response<RegisterResponse>
     
     @GET("api/viajes/misViajes")
     suspend fun getMyTrips(@Header("Authorization") token: String): Response<List<Trip>>

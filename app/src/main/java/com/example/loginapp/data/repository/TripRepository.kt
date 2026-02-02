@@ -8,4 +8,8 @@ class TripRepository(private val apiService: ApiService) {
     suspend fun getMyTrips(token: String): Response<List<Trip>> {
         return apiService.getMyTrips("Bearer $token")
     }
+
+    suspend fun getNearbyTrips(latitude: Double, longitude: Double, radius: Double): Response<List<Trip>> {
+        return apiService.getNearbyTrips(latitude, longitude, radius)
+    }
 }

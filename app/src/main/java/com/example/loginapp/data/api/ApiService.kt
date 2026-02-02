@@ -18,6 +18,13 @@ interface ApiService {
     @POST("api/register")
     suspend fun register(@Body request: RegisterRequest): Response<RegisterResponse>
     
-    @GET("api/viajes/misViajes")
+    @GET("api/misViajes")
     suspend fun getMyTrips(@Header("Authorization") token: String): Response<List<Trip>>
+
+    @GET("api/cercanos")
+    suspend fun getNearbyTrips(
+        @retrofit2.http.Query("lat") latitude: Double,
+        @retrofit2.http.Query("lng") longitude: Double,
+        @retrofit2.http.Query("radio") radius: Double = 50000.0
+    ): Response<List<Trip>>
 }

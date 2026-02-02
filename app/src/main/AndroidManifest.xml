@@ -30,6 +30,8 @@
             android:exported="false" />
         <activity android:name=".ui.view.RegisterActivity"
             android:exported="false" />
+        <activity android:name=".ui.view.NearbyTripsActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
